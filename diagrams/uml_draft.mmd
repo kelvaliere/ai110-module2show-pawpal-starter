@@ -1,0 +1,37 @@
+classDiagram
+    class Pet {
+        +String name
+        +String species
+        +int age
+        +List~Routine~ routines
+        +add_routine(routine) void
+        +get_tasks() List~Task~
+    }
+
+    class Routine {
+        +String name
+        +List~Task~ tasks
+        +add_task(task) void
+        +get_tasks() List~Task~
+    }
+
+    class Task {
+        +String title
+        +time due_time
+        +int duration_minutes
+        +String priority
+        +bool is_done
+        +mark_done() void
+    }
+
+    class Schedule {
+        +date date
+        +List~Task~ events
+        +add_event(task) void
+        +get_events() List~Task~
+        +show_calendar() void
+    }
+
+    Pet "1" *-- "*" Routine : has
+    Routine "1" *-- "*" Task : contains
+    Schedule "1" o-- "*" Task : lists

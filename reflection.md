@@ -2,6 +2,31 @@
 
 ## 1. System Design
 
+For my PawPal project, I want the user to be able to add a couple of pets to manage, show the tasks for the day, and show the schedule for the owner.
+
+> **Attributes:**
+> - It should hold information about the pets, tasks maybe in an index of some sort (list?), the times for each task/schedule event, and the schedule itself.
+>
+> **Methods:**
+> - It should be able to add pets, add events, store schedule events, show the tasks and events, and show the event calendar.
+
+```md
+**Classes**
+- **Pet**: holds information about one pet.
+  - Attributes: `name`, `species`, `age`, `routines`
+  - Methods: `add_routine()`, `get_tasks()`
+- **Task**: one care activity, such as a walk or a feeding.
+  - Attributes: `title`, `due_time`, `duration_minutes`, `priority`, `is_done`
+  - Methods: `mark_done()`
+- **Routine**: a group of tasks, such as "morning care".
+  - Attributes: `name`, `tasks`
+  - Methods: `add_task()`, `get_tasks()`
+- **Schedule**: the daily plan shown to the owner.
+  - Attributes: `date`, `events`
+  - Methods: `add_event()`, `get_events()`, `show_calendar()`
+```
+(authored by Claude)
+
 **a. Initial design**
 
 - Briefly describe your initial UML design.
