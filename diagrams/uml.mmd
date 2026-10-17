@@ -1,0 +1,39 @@
+classDiagram
+    class Task {
+        +String description
+        +time due_time
+        +String frequency
+        +int duration_minutes
+        +String priority
+        +String pet_name
+        +bool is_done
+        +mark_done() void
+    }
+
+    class Pet {
+        +String name
+        +String species
+        +int age
+        +List~Task~ tasks
+        +add_task(task) void
+        +get_tasks() List~Task~
+    }
+
+    class Owner {
+        +String name
+        +List~Pet~ pets
+        +add_pet(pet) void
+        +get_all_tasks() List~Task~
+    }
+
+    class Scheduler {
+        +Owner owner
+        +get_sorted_tasks() List~Task~
+        +get_pending_tasks() List~Task~
+        +get_tasks_for_pet(pet_name) List~Task~
+        +show_plan() void
+    }
+
+    Owner "1" *-- "*" Pet : has
+    Pet "1" *-- "*" Task : has
+    Scheduler "1" --> "1" Owner : reads tasks from

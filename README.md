@@ -42,16 +42,25 @@ pip install -r requirements.txt
 6. Connect your logic to the Streamlit UI in `app.py`.
 7. Refine UML so it matches what you actually built.
 
+## Short Implementation Summary
+With the help of Claude, this app is a Python-based tool that allows for pet owners to manage their pet schedule.
+
+First, we can start by initializing an object of the `Owner` class, and then some pets using the `Pet` class. Owner has a method named `add_pet()` to be able to connect `Pet`s to `Owner`s.
+
+Then for pets, there is a class named `Task`, with the first parameter as the task name, and the second paramter using `datatime` as the time of day (in 24hr/military time). The user can then set tasks to pets using the `add_task()`.
+
+Finally, there is a `Scheduler` class that takes an `Owner` parameter, and the `show_plan()` method will export a daily brief on the tasks that need to be accomplished.
+
+
 ## 🖥️ Sample Output
 
 Paste a sample of your app's CLI or Streamlit output here so a reader can see what a generated plan looks like:
 
-```
-# e.g.:
-# Daily plan for Biscuit (Golden Retriever):
-#   08:00 — Morning walk (30 min) [priority: high]
-#   09:00 — Feeding (10 min) [priority: high]
-#   ...
+```zsh
+Daily plan for Kelvin
+  [ ] 08:00 Bathe (Meow, 15 min, medium, daily)
+  [ ] 12:00 Feed (Arf, 15 min, medium, daily)
+  [ ] 13:00 Go on a walk (Arf, 15 min, medium, daily)
 ```
 
 ## 🧪 Testing PawPal+
@@ -66,8 +75,16 @@ pytest --cov
 
 Sample test output:
 
-```
-# Paste your pytest output here
+```zsh
+================================================= test session starts ==================================================
+platform darwin -- Python 3.15.0, pytest-9.1.1, pluggy-1.7.0
+rootdir: /Users/kelvin/f2026/codepath/ai110-module2show-pawpal-starter
+plugins: anyio-4.15.1
+collected 2 items                                                                                                      
+
+tests/test_pawpal.py ..                                                                                          [100%]
+
+================================================== 2 passed in 0.01s ===================================================
 ```
 
 ## 📐 Smarter Scheduling
