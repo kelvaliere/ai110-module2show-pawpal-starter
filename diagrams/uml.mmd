@@ -28,9 +28,8 @@ classDiagram
 
     class Scheduler {
         +Owner owner
-        +get_sorted_tasks() List~Task~
-        +get_pending_tasks() List~Task~
-        +get_tasks_for_pet(pet_name) List~Task~
+        +sort_by_time() List~Task~
+        +filter_tasks(pet_name, is_done) List~Task~
         +show_plan() void
     }
 
