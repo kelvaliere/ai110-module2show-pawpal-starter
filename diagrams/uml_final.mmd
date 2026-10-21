@@ -1,0 +1,45 @@
+classDiagram
+    class Task {
+        +String description
+        +time due_time
+        +String frequency  "once|daily|weekly"
+        +int duration_minutes
+        +String priority  "low|medium|high"
+        +String pet_name
+        +bool is_done
+        +date due_date
+        +start() datetime
+        +mark_done() void
+        +next_occurrence() Task
+    }
+
+    class Pet {
+        +String name
+        +String species
+        +int age
+        +List~Task~ tasks
+        +add_task(task) void
+        +complete_task(task) void
+        +get_tasks() List~Task~
+    }
+
+    class Owner {
+        +String name
+        +List~Pet~ pets
+        +add_pet(pet) void
+        +get_all_tasks() List~Task~
+    }
+
+    class Scheduler {
+        +Owner owner
+        +sort_by_time() List~Task~
+        +filter_tasks(pet_name, is_done) List~Task~
+        +find_conflicts() List~String~
+        +show_plan() void
+    }
+
+    Owner "1" *-- "*" Pet : has
+    Pet "1" *-- "*" Task : has
+    Scheduler "1" --> "1" Owner : reads tasks from
+    Scheduler ..> Task : sorts, filters, flags conflicts
+    Task ..> Task : next_occurrence creates

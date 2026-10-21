@@ -100,14 +100,19 @@ collected 0 items
 | Conflict handling | returns list of warnings, if empty it has no errors | checking for tasks that may collide, when there is more than one task |
 | Recurring tasks | returns copy of task for next period, otherwise none | can be set weekly or daily, from `_REPEAT_STEP` |
 
+# Features
+
+- **Sorting by time:** `Scheduler.sort_by_time()` gathers every task from every pet and orders them by start date and time (`Task.start`). When two tasks start at the same moment, the higher priority comes first (high, then medium, then low). An unrecognized priority is treated as medium. Tasks on different dates sort by date first, so tomorrow's 08:00 comes after today's 23:00.
+- **Filtering:** `Scheduler.filter_tasks()` keeps tasks by pet name, by completion status, or both. A filter left as `None` is ignored. Results stay in time order.
+- **Conflict warnings:** `Scheduler.find_conflicts()` groups pending tasks by exact start date and time and returns one warning for each time shared by two or more tasks. It catches clashes for the same pet and across different pets. Finished tasks are ignored. It compares start times only, not durations, so a 30-minute task at 08:00 and another at 08:15 are not flagged.
+- **Daily and weekly recurrence:** `Pet.complete_task()` marks a task done and adds a fresh, not-done copy due one day later (`daily`) or seven days later (`weekly`). `once` tasks do not repeat.
+- **Daily plan:** `Scheduler.show_plan()` prints all tasks in time order with their status, pet, duration, priority and frequency, followed by any conflict warnings.
+
 ## 📸 Demo Walkthrough
 
 Describe your app in numbered steps so a reader can follow along without watching a video:
 
-1. <!-- Describe this step -->
-2. <!-- Describe this step -->
-3. <!-- Describe this step -->
-4. <!-- Describe this step -->
-5. <!-- Add more steps as needed -->
-
-**Screenshot or video** *(optional)*: <!-- Insert a screenshot or link to a demo video here -->
+1. The goal is this app is to set tasks for pets and create a schedule plan around those tasks.
+2. First, enter in the `Owner`'s name, for example, your name in the `Owner name` field, and details about your pet. You can always add more pets.
+3. After adding your pets, select which pet for the task, and add the task title and the time (in 24-hr format).
+4. Your schedule should automatically update in a table for you to view, provided that you add tasks.

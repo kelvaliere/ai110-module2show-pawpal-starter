@@ -58,10 +58,14 @@ I wanted to make a daily refresh so that each day would have its schedule. I'm n
 - What constraints does your scheduler consider (for example: time, priority, preferences)?
 - How did you decide which constraints mattered most?
 
+The scheduler got all the tasks, and primarily considered priority. I decided it would be better for the user to choose priority over their tasks rather than having a machine auto-grade it.
+
 **b. Tradeoffs**
 
 - Describe one tradeoff your scheduler makes.
 - Why is that tradeoff reasonable for this scenario?
+
+One tradeoff is that users may miss out on the priority section, so it might be important to have a tooltip or warning ask if the desired priority is correct before proceeding.
 
 ---
 
@@ -95,10 +99,14 @@ I think I did not accept some suggestions because I did not know how these thing
 - What behaviors did you test?
 - Why were these tests important?
 
+I primarily tested some features like sorting through unsorted tasks and finding timing conflicts. These two are most important because we want our scheduler to be organized and sorted, so we can see from a top-down view what needs to be accomplished first.
+
 **b. Confidence**
 
 - How confident are you that your scheduler works correctly?
 - What edge cases would you test next if you had more time?
+
+I think I should test some tasks with the same name, and ask the user if they really meant to send duplicate tasks. I wonder if it would be possible to combine two pets together that do the same task, such as walking both a dog and a cat together.
 
 ---
 
@@ -108,10 +116,20 @@ I think I did not accept some suggestions because I did not know how these thing
 
 - What part of this project are you most satisfied with?
 
+I think I am satisified to see the system improve through prototyping with AI tools. I have learned that classes are very helpful in managing this sort of data.
+
+I have recently learned about C++ classes in my coursework, but this is my first time seeing how they can be implemented into systems/apps.
+
 **b. What you would improve**
 
 - If you had another iteration, what would you improve or redesign?
 
+I think I would make it possible to be exported as an ICS for calendars, or maybe the option to export to a CSV.
+
 **c. Key takeaway**
 
 - What is one important thing you learned about designing systems or working with AI on this project?
+
+I think that AI tends to overcomplicate things with code, so it's important to double check, and ask it to reiterate what just happened instead of running it as is.
+
+I used a skill called `/ste` (Standard Technical English) from a YouTuber I watched, and it explained what happened in easy-to-follow, readable English.
