@@ -67,24 +67,26 @@ Daily plan for Kelvin
 
 ```bash
 # Run the full test suite:
-pytest
-
-# Run with coverage:
-pytest --cov
-```
-
-Sample test output:
-
-```zsh
-================================================= test session starts ==================================================
+.venv ❯ pytest
+================================================================ test session starts ================================================================
 platform darwin -- Python 3.15.0, pytest-9.1.1, pluggy-1.7.0
 rootdir: /Users/kelvin/f2026/codepath/ai110-module2show-pawpal-starter
 plugins: anyio-4.15.1
-collected 2 items                                                                                                      
+collected 0 items                                                                                                                                   
 
-tests/test_pawpal.py ..                                                                                          [100%]
+=============================================================== no tests ran in 0.01s ===============================================================
 
-================================================== 2 passed in 0.01s ===================================================
+# Run with coverage:
+.venv ❯ pytest --cov
+================================================================ test session starts ================================================================
+platform darwin -- Python 3.15.0, pytest-9.1.1, pluggy-1.7.0
+rootdir: /Users/kelvin/f2026/codepath/ai110-module2show-pawpal-starter
+configfile: ov
+plugins: anyio-4.15.1
+collected 0 items                                                                                                                                   
+
+=============================================================== no tests ran in 0.01s ===============================================================
+
 ```
 
 ## 📐 Smarter Scheduling
